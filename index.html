@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+
+
+</head>
+
+<body>
+
+	<form id="contactForm1" action="#" method="post">
+
+		<!--
+		Name:
+		<input type="text" name="name" required>
+		<br> Email:
+		<input type="text" name="email" required>
+		<br> Phone:
+		<input type="text" name="phone" required>
+		<hr>
+-->
+
+		<!-- Captcha Block -->
+		<label>Captcha:</label>
+		<input id="mainCaptcha" type="text" disabled="">
+
+		<br>
+
+		<!-- Id of text input hardcoded to match the Id of the captcha display, with a "2" tacked on. -->
+		<input id="mainCaptcha2" type="text" placeholder="Enter captcha" name="captcha" required="">
+		<div id="captchaLog"></div>
+		<br>
+		<br>
+		<button id="refreshCaptcha" type="button" onclick="captchaObj.captchaCode();">Reset</button>
+
+		<script src="js/captcha.js"></script>
+		<script>
+			// Load the CSS file for the captcha HTML
+			var link = document.createElement("link");
+			link.type = "text/css";
+			link.rel = "stylesheet";
+			link.href = "css/captcha.css";
+			document.getElementsByTagName("head")[0].appendChild(link);
+
+			// Setup the captcha object class.
+			// Pass it the ID of the Captcha <input>
+			// Pass it the ID of the <form> for submission event handling.
+			// Pass the ID of the log <div> for feedback.
+			var captchaObj = new captchaClass(document.getElementById("mainCaptcha"), document.getElementById("contactForm1"), document.getElementById("captchaLog"));
+
+		</script>
+		<!-- End Captcha Block -->
+
+		<hr>
+		<button type="submit" name="submit">Submit Form</button>
+		<br>
+
+	</form>
+
+</body>
+
+</html>

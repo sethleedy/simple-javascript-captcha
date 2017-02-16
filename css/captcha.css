@@ -1,0 +1,27 @@
+#mainCaptcha {
+	margin-bottom: 0px;
+	width: 200px;
+	height: 40px;
+	font-size: 24px;
+	font-weight: bolder;
+	text-decoration: line-through;
+	display: inline-block;
+}
+#captchaLog {
+	margin-top: 10px;
+	color: #D8000C;
+	background-color: #FFBABA;
+	border-radius: 7px;
+	font-size: 16px;
+	padding: 5px;
+	margin-left: 60px;
+	width: 190px;
+	display: none;
+}
+#mainCaptcha2 {
+	margin-left: 60px;
+	width: 200px;
+}
+#refreshCaptcha {
+	display: inline-block;
+}
