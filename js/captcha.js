@@ -11,27 +11,37 @@ class captchaClass {
 		// Setup first captcha code on run
 		this.idOfCaptcha = idOfCaptcha;
 		this.idOfCaptcha2 = document.getElementById(this.idOfCaptcha.id + "2"); // Set the text input id. It is hardcoded to whatever the captcha id is + "2".
+		this.idOfCaptcha3 = document.getElementById(this.idOfCaptcha.id + "3"); // The Reset button
+
+		// Create the captcha and set it to the above ID's
 		this.setCaptcha();
 
 		// Bind the onsubmit event on the passed form to the validate method
 		this.formId = idOfForm;
-		//if (window.addEventListener) { // avoid errors in incapable browsers. IE8 and under.
+		if (document.addEventListener) { // avoid errors in incapable browsers. IE8 and under.
+			this.formId.addEventListener("submit", this.validateForm.bind(this));
 
-		this.formId.addEventListener("submit", this.validateForm.bind(this));
-		//}
+		}
 
 		// Bind the log for spitting out messages
 		this.idOfLog = idOfLog;
+
+		// Bind the Reset button click event
+		if (document.addEventListener) { // avoid errors in incapable browsers. IE8 and under.
+
+			this.idOfCaptcha3.addEventListener("click", function () {
+				let dummy = this.captchaCode(); // Getter call
+			}.bind(this)); // Watch the "this" context. "this" is not the class unless we bind it here. Normally it is the idOfCaptcha3 context since it is invoked from it.
+		}
 	}
 
-	// This is what fires when requesting the code. It is read only so no one messes the code up in other JS code.
+	// This is what fires when requesting the code. It is read only so no one messes with the captcha in other JS code.
 	get captchaCode() {
 
 		// Clear the log
 		this.appendLog();
 
 		// ReCall the method to create a new code.
-		// Pass the Id for it to update the page.
 		// Return it, if called by another function.
 		return this.setCaptcha();
 	}
