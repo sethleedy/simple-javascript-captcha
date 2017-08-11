@@ -10,7 +10,7 @@ class captchaClass {
 	constructor(idOfCaptcha, idOfForm, idOfLog) {
 		// Setup first captcha code on run
 		this.idOfCaptcha = idOfCaptcha;
-		this.idOfCaptcha2 = document.getElementById(this.idOfCaptcha.id + "2"); // Set the text input id. It is hardcoded to whatever the captcha id is + "2".
+		this.idOfCaptcha2 = document.getElementById(this.idOfCaptcha.id + "2"); // Set the text input id. It is hard-coded to whatever the captcha id is + "2".
 		this.idOfCaptcha3 = document.getElementById(this.idOfCaptcha.id + "3"); // The Reset button
 
 		// Create the captcha and set it to the above ID's
@@ -65,7 +65,7 @@ class captchaClass {
 
 		} // else {
 		//
-		//			alert("TRUE");
+		//			alert("CORRECT");
 		//		}
 	}
 
