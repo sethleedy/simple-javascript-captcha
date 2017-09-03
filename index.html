@@ -33,7 +33,7 @@
 		<br>
 		<button id="mainCaptcha3" type="button">Reset</button>
 
-		<script src="js/captcha.js"></script>
+		<script src="js/captcha_functions.js"></script>
 
 
 		<hr>
@@ -55,7 +55,9 @@
 		// Pass it the ID of the Captcha <input>
 		// Pass it the ID of the <form> for submission event handling.
 		// Pass the ID of the log <div> for feedback.
-		var captchaObj = new captchaClass(document.getElementById("mainCaptcha"), document.getElementById("contactForm1"), document.getElementById("captchaLog"));
+		// Optional: Pass the source of the captcha. Defaults to "local" for in browser generation.
+		//		Options: "local", "php", "js"
+		var captchaObj = new captchaClass(document.getElementById("mainCaptcha"), document.getElementById("contactForm1"), document.getElementById("captchaLog"),"php");
 
 	</script>
 	<!-- End Captcha Block -->
