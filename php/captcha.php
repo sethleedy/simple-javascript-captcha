@@ -12,6 +12,7 @@
 	shuffle($seed); // probably optional since array_is randomized; this may be redundant
 	$rand = ' ';
 
+	// Loop, get the random chars and add spaces between them to the variable $rand.
 	foreach (array_rand($seed, 6) as $k) $rand .= " " . $seed[$k];
 
 	echo $rand;

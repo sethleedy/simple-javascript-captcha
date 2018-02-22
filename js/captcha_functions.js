@@ -107,12 +107,12 @@ class captchaClass {
             // Fill in variable
             request.onreadystatechange = function() {
                 if (request.readyState === 4) {
-                	console.log("4");
+                	console.log("ready state = 4");
                     var tmpcss = idOfCaptcha.style.border;
                     idOfCaptcha.style.border = '1px dashed blue';
 
                     if (request.status === 200) {
-                    	console.log("200");
+                    	console.log("request status = 200");
                         idOfCaptcha.style.border = tmpcss;
 
 						// Attach to DOM
@@ -129,7 +129,7 @@ class captchaClass {
             request.send();
         }
 
-        if (source == "js") {
+        if (source == "nodejs") {
 
         }
 
