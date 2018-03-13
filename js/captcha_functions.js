@@ -111,20 +111,19 @@ class captchaClass {
 
 			// Return correct or not, then preventDefault or allow it to pass.
 			// Pass the inputted string and the session ID to PHP for checking if it is correct.
-			fetch("captcha.php?validate=" + string2, myInit).then(function(response) {
+			fetch("captcha.php?validate=" + string2, myInit, {method: 'post'}).then(
+				function(response) {
+					if (response.ok) {
+					
+						// Were good. Allow the form submission through.
+						console.log("Allow form submission!");
 
-				if (response.ok) {
-				
-					// Were good. Allow the form submission through.
-					console.log("Allow form submission!");
-
-					return response.blob();		
+						return response.blob();		
+					}
+					throw new Error('Network response was not ok.');
 				}
-				throw new Error('Network response was not ok.');
-			
-			}).then(response => response.text()).catch(function(error) {
+			).then(response => response.text()).catch(function(error) {
 				console.log('There has been a problem with the fetch operation: ', error.message);
-			
 			});
 		} else if (string1 != string2 || string2 == "") {
 			
