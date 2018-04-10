@@ -12,7 +12,7 @@ function loadClass($class)
 		foreach ($files as $file)
 		{
 			$path = "$base_path/$file";
-			//echo $path."<br>";
+			//echo "Path: ".$path."<br>";
 			if (file_exists($path) && is_readable($path))
 			{
 				include_once $path;
